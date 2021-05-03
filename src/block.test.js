@@ -1,3 +1,4 @@
+const hexToBinary = require("hex-to-binary");
 const { GENESIS_DATA, MINE_RATE } = require("../config/config");
 const Block = require("./block");
 const cryptoHash = require("./crypto-hash");
@@ -73,9 +74,9 @@ describe("Block", () => {
     });
 
     it("sets a hash thats matches the difficulty criteria", () => {
-      expect(minedBlock.hash.substring(0, minedBlock.difficulty)).toEqual(
-        "0".repeat(minedBlock.difficulty)
-      );
+      expect(
+        hexToBinary(minedBlock.hash).substring(0, minedBlock.difficulty)
+      ).toEqual("0".repeat(minedBlock.difficulty));
     });
     it("adjuct the difficulty", () => {
       const possibleResults = [
