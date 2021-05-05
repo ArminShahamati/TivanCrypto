@@ -7,12 +7,14 @@
     "test": "jest --watchAll",
     "start": "node index.js",
     "dev": "npm run start-redis && nodemon index.js",
+    "dev-peer":"cross-env GENERATE_PEER_PORT='true' nodemon index.js",
     "start-redis": "redis-server --daemonize yes"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^23.6.0",
     "nodemon": "^2.0.7"
   },
